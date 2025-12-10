@@ -1,12 +1,23 @@
 {
-  "name": "api-abuse-detection-website",
+  "name": "boing-website",
   "version": "1.0.0",
   "private": true,
+  "description": "Production-ready website for Boing API abuse detection platform",
+  "keywords": ["api-security", "cybersecurity", "monitoring", "nextjs", "react"],
+  "homepage": "https://boing-main.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Panda-0x01/Boing_main.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "build:analyze": "ANALYZE=true next build",
+    "export": "next build && next export"
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.2",

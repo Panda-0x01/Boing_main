@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Book, Code, Settings, Rocket, Database, Docker } from "lucide-react";
+import { Book, Code, Settings, Rocket, Database } from "lucide-react";
 import CardSwap, { Card } from "./ui/card-swap";
 import "./ui/card-swap.css";
 

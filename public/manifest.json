@@ -1,0 +1,27 @@
+{
+  "name": "Boing - API Abuse Detection Platform",
+  "short_name": "Boing",
+  "description": "Production-ready API abuse & cybersecurity monitoring platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030303",
+  "theme_color": "#030303",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/boing_logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/boing_logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["productivity", "security", "developer"],
+  "lang": "en",
+  "dir": "ltr"
+}
