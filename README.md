@@ -5,12 +5,14 @@ A modern, professional website for the Boing API abuse detection platform built 
 ## Features
 
 - **Modern Dark Theme**: Professional black, white, and gray color scheme
+- **Mobile-First Responsive Design**: Fully responsive across all devices with mobile hamburger menu
 - **Interactive Sidebar**: Organized project components with detailed modals
+- **Hamburger Navigation**: Mobile-friendly navigation with smooth slide-in sidebar
 - **Enhanced Header**: Detection pipeline visualization with floating elements
 - **Documentation Section**: CardSwap animation with comprehensive guides
 - **Custom Scrollbar**: Styled scrollbars that match the dark theme
 - **Boing Logo Integration**: Real logo with SVG fallbacks throughout
-- **Responsive Design**: Fully responsive across all devices
+- **Touch-Optimized**: Improved touch targets and mobile interactions
 - **Smooth Animations**: Framer Motion animations throughout
 - **Performance Optimized**: Built with Next.js 14 and optimized for speed
 - **TypeScript**: Full type safety throughout the application
@@ -63,11 +65,14 @@ A modern, professional website for the Boing API abuse detection platform built 
 
 ## Key Components
 
-### Interactive Sidebar
-- **Project Categories**: Detection, Monitoring, Security, Platform
+### Interactive Sidebar & Mobile Navigation
+- **Desktop Sidebar**: Fixed sidebar with project categories (Detection, Monitoring, Security, Platform)
+- **Mobile Hamburger Menu**: Responsive hamburger button that reveals slide-in navigation
 - **Clickable Items**: Each project opens detailed information modal
+- **Auto-Close**: Mobile menu automatically closes when items are clicked
 - **Custom Scrollbar**: Dark-themed scrollbar styling
 - **Boing Logo**: Real logo with SVG fallback
+- **Touch Optimized**: Improved touch targets for mobile devices
 
 ### Enhanced Header
 - **Detection Pipeline**: Visual representation with orbiting elements
@@ -109,6 +114,28 @@ The logo appears in multiple locations:
 - Browser favicon
 - SVG fallback component
 
+## Mobile Responsiveness
+
+The website is fully optimized for mobile devices:
+
+### Mobile Navigation
+- **Hamburger Menu**: Clean hamburger button in top-left corner
+- **Slide-in Sidebar**: Smooth animation with backdrop blur
+- **Auto-close**: Menu closes when clicking outside or on menu items
+- **Touch Targets**: All buttons meet minimum 44px touch target size
+
+### Responsive Breakpoints
+- **Mobile**: < 640px (hamburger menu, stacked layout)
+- **Tablet**: 640px - 1024px (responsive grid, optimized spacing)
+- **Desktop**: > 1024px (full sidebar, two-column layouts)
+
+### Mobile Optimizations
+- Viewport meta tag for proper scaling
+- Prevented horizontal scroll
+- Optimized font sizes and spacing
+- Touch-friendly interactions
+- Backdrop blur effects for modern feel
+
 ## Deployment
 
 Deploy easily on Vercel:
@@ -121,7 +148,8 @@ The website is optimized for production with:
 - Next.js Image optimization
 - Proper meta tags and SEO
 - Performance-optimized animations
-- Responsive design
+- Full responsive design
+- Mobile-first approach
 
 ## License
 MIT License - feel free to use this template for your own projects!

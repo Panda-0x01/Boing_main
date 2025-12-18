@@ -1,17 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Shield, Activity, Lock, Database, Code, Server, Github, Twitter, Linkedin } from "lucide-react";
+import { Shield, Activity, Lock, Database, Code, Server, Github, Twitter, Linkedin, Menu, X } from "lucide-react";
 import { BoingLogo } from "./icons";
 import ProjectDetails from "./ProjectDetails";
 
 export default function Sidebar() {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [imageError, setImageError] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleProjectClick = (projectName: string) => {
     setSelectedProject(projectName);
+    setIsMobileMenuOpen(false); // Close menu on mobile when item is clicked
   };
 
   const handleCloseDetails = () => {
@@ -21,6 +23,40 @@ export default function Sidebar() {
   const handleImageError = () => {
     setImageError(true);
   };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isMobileMenuOpen && !target.closest('.sidebar-container') && !target.closest('.hamburger-button')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
 
   // Custom scrollbar styles
   const scrollbarStyles = `
@@ -42,7 +78,29 @@ export default function Sidebar() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: scrollbarStyles }} />
-      <div className="fixed left-0 top-0 h-full w-72 bg-card border-r border-border z-40 backdrop-blur-sm">
+      
+      {/* Mobile Hamburger Button */}
+      <button
+        onClick={toggleMobileMenu}
+        className="hamburger-button fixed top-4 left-4 z-50 lg:hidden bg-card border border-border rounded-lg p-2 backdrop-blur-sm shadow-lg"
+        aria-label="Toggle navigation menu"
+      >
+        {isMobileMenuOpen ? (
+          <X className="w-6 h-6 text-foreground" />
+        ) : (
+          <Menu className="w-6 h-6 text-foreground" />
+        )}
+      </button>
+
+      {/* Mobile Overlay */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 lg:hidden" />
+      )}
+
+      {/* Sidebar */}
+      <div className={`sidebar-container fixed left-0 top-0 h-full w-72 bg-card border-r border-border z-40 backdrop-blur-sm transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+        isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+      }`}>
         <div className="flex flex-col h-full">
           <div className="p-6 border-b border-border">
             <div className="flex items-center gap-3">
@@ -75,9 +133,33 @@ export default function Sidebar() {
                   Navigation
                 </h3>
                 <div className="space-y-2">
-                  <a href="https://github.com/Panda-0x01/Boing_API#readme" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-foreground text-sm py-2 px-2 rounded-md hover:bg-accent/30 transition-all duration-200">About</a>
-                  <a href="https://github.com/Panda-0x01/Boing_API/issues" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-foreground text-sm py-2 px-2 rounded-md hover:bg-accent/30 transition-all duration-200">Support</a>
-                  <a href="https://github.com/Panda-0x01/Boing_API#readme" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-foreground text-sm py-2 px-2 rounded-md hover:bg-accent/30 transition-all duration-200">Documentation</a>
+                  <a 
+                    href="https://github.com/Panda-0x01/Boing_API#readme" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="block text-muted-foreground hover:text-foreground text-sm py-2 px-2 rounded-md hover:bg-accent/30 transition-all duration-200"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    About
+                  </a>
+                  <a 
+                    href="https://github.com/Panda-0x01/Boing_API/issues" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="block text-muted-foreground hover:text-foreground text-sm py-2 px-2 rounded-md hover:bg-accent/30 transition-all duration-200"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Support
+                  </a>
+                  <a 
+                    href="https://github.com/Panda-0x01/Boing_API#readme" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="block text-muted-foreground hover:text-foreground text-sm py-2 px-2 rounded-md hover:bg-accent/30 transition-all duration-200"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Documentation
+                  </a>
                 </div>
               </div>
               
@@ -187,15 +269,29 @@ export default function Sidebar() {
               Social
             </h3>
             <div className="flex gap-4">
-              <a href="https://github.com/Panda-0x01/Boing_API" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-muted-foreground hover:text-foreground text-sm transition-colors">
+              <a 
+                href="https://github.com/Panda-0x01/Boing_API" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-1 text-muted-foreground hover:text-foreground text-sm transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 <Github className="w-4 h-4" />
                 GitHub
               </a>
-              <a href="#" className="flex items-center gap-1 text-muted-foreground hover:text-foreground text-sm transition-colors">
+              <a 
+                href="#" 
+                className="flex items-center gap-1 text-muted-foreground hover:text-foreground text-sm transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 <Twitter className="w-4 h-4" />
                 Twitter
               </a>
-              <a href="#" className="flex items-center gap-1 text-muted-foreground hover:text-foreground text-sm transition-colors">
+              <a 
+                href="#" 
+                className="flex items-center gap-1 text-muted-foreground hover:text-foreground text-sm transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 <Linkedin className="w-4 h-4" />
                 LinkedIn
               </a>

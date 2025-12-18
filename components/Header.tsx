@@ -21,13 +21,13 @@ export default function Header() {
         <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-foreground/20 rounded-full animate-pulse delay-700"></div>
       </div>
       
-      <div className="container mx-auto px-4 py-20 relative z-10">
+      <div className="container mx-auto px-4 lg:px-8 py-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-7xl mx-auto min-h-screen items-center">
           
           {/* Left Side - Text Content */}
-          <div className="space-y-8 lg:pr-8 relative z-20">
+          <div className="space-y-8 lg:pr-8 relative z-20 text-center lg:text-left">
             <div className="space-y-4">
-              <Badge variant="outline" className="text-xs font-mono bg-card/50 backdrop-blur-sm border-foreground/20">
+              <Badge variant="outline" className="text-xs font-mono bg-card/50 backdrop-blur-sm border-foreground/20 inline-flex">
                 Open Source • Production Ready
               </Badge>
               <div className="space-y-1">
@@ -41,18 +41,18 @@ export default function Header() {
             </div>
 
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl font-light leading-tight tracking-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight tracking-tight">
                 Boing protects your
                 <br />
                 <span className="font-medium">APIs from abuse.</span>
               </h1>
               
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <p className="text-muted-foreground text-base lg:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 Production-ready platform with multi-layer detection, real-time monitoring, 
                 and intelligent alerts. No paid APIs - uses local ML models only.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
                 <Button size="lg" asChild className="h-12 px-8">
                   <a href="https://github.com/Panda-0x01/Boing_API#quick-start" target="_blank" rel="noopener noreferrer">
                     Get Started
@@ -69,18 +69,18 @@ export default function Header() {
           </div>
 
           {/* Right Side - Visual Content */}
-          <div className="flex flex-col items-center justify-center space-y-8 relative z-20">
-            <div className="bg-card/70 backdrop-blur-sm rounded-3xl p-10 border border-border/50 w-full max-w-md shadow-2xl relative overflow-hidden">
+          <div className="flex flex-col items-center justify-center space-y-8 relative z-20 order-first lg:order-last">
+            <div className="bg-card/70 backdrop-blur-sm rounded-3xl p-6 sm:p-10 border border-border/50 w-full max-w-sm sm:max-w-md shadow-2xl relative overflow-hidden">
               {/* Subtle inner glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-foreground/5 to-transparent rounded-3xl"></div>
               
               <div className="flex items-center justify-center relative z-10">
                 <div className="relative">
-                  <div className="w-40 h-40 bg-gradient-to-br from-foreground/10 to-foreground/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-foreground/30 shadow-lg relative">
+                  <div className="w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-foreground/10 to-foreground/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-foreground/30 shadow-lg relative">
                     {/* Inner rings */}
-                    <div className="w-24 h-24 bg-gradient-to-br from-foreground/20 to-foreground/30 rounded-full flex items-center justify-center border border-foreground/20">
-                      <div className="w-12 h-12 bg-gradient-to-br from-foreground/40 to-foreground/60 rounded-full flex items-center justify-center border border-foreground/30">
-                        <div className="w-6 h-6 bg-foreground rounded-full shadow-lg"></div>
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-foreground/20 to-foreground/30 rounded-full flex items-center justify-center border border-foreground/20">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-foreground/40 to-foreground/60 rounded-full flex items-center justify-center border border-foreground/30">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 bg-foreground rounded-full shadow-lg"></div>
                       </div>
                     </div>
                     

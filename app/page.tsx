@@ -10,7 +10,7 @@ export default function Home() {
     <div className="dark">
       <div className="flex min-h-screen bg-background">
         <Sidebar />
-        <main className="flex-1 ml-72 min-w-0 relative">
+        <main className="flex-1 lg:ml-72 min-w-0 relative">
           <Header />
           <Features />
           <Documentation />

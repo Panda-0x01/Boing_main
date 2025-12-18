@@ -39,26 +39,26 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-32 px-12 bg-background border-t border-border">
+    <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-8 lg:px-12 bg-background border-t border-border">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-24"
+          className="mb-16 sm:mb-20 lg:mb-24 text-center lg:text-left"
         >
-          <div className="max-w-3xl">
-            <h2 className="text-4xl md:text-5xl font-light text-foreground mb-8 tracking-tight leading-tight">
+          <div className="max-w-3xl mx-auto lg:mx-0">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-foreground mb-6 sm:mb-8 tracking-tight leading-tight">
               Platform Features
             </h2>
-            <p className="text-muted-foreground text-xl leading-relaxed">
+            <p className="text-muted-foreground text-lg sm:text-xl leading-relaxed">
               Production-ready cybersecurity monitoring platform with comprehensive API abuse detection and real-time alerting.
             </p>
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -68,17 +68,17 @@ export default function Features() {
               viewport={{ once: true }}
               className="group"
             >
-              <Card className="hover:bg-accent/50 transition-all duration-300 border-border h-full p-8">
-                <CardHeader className="p-0 pb-6">
-                  <div className="w-12 h-12 bg-foreground/10 rounded-xl flex items-center justify-center mb-6">
-                    <feature.icon className="w-6 h-6 text-foreground" />
+              <Card className="hover:bg-accent/50 transition-all duration-300 border-border h-full p-6 sm:p-8">
+                <CardHeader className="p-0 pb-4 sm:pb-6">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-foreground/10 rounded-xl flex items-center justify-center mb-4 sm:mb-6">
+                    <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
                   </div>
-                  <CardTitle className="text-xl font-medium tracking-tight">
+                  <CardTitle className="text-lg sm:text-xl font-medium tracking-tight">
                     {feature.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
-                  <CardDescription className="text-muted-foreground leading-relaxed">
+                  <CardDescription className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                     {feature.description}
                   </CardDescription>
                 </CardContent>

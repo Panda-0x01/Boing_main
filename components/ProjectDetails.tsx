@@ -219,7 +219,7 @@ export default function ProjectDetails({ projectName, onClose }: ProjectDetailsP
         <Card className="w-full max-w-md">
           <CardHeader>
             <CardTitle>Project Not Found</CardTitle>
-            <CardDescription>Details for "{projectName}" are not available yet.</CardDescription>
+            <CardDescription>Details for &quot;{projectName}&quot; are not available yet.</CardDescription>
           </CardHeader>
           <CardContent>
             <Button onClick={onClose} className="w-full">Close</Button>
